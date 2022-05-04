@@ -8,7 +8,7 @@ import dashboard  from '../views/Dashboard/dashboardView.vue'
 // import booksveiw  from '../views/Library/BooksView.vue'
 // import addbook  from '../views/Library/BooksAdd.vue'
 // import addlectures  from '../views/Lectures/LectureAdd.vue'
-// import lectures  from '../views/Lectures/lecturesView.vue'
+import lectures  from '../views/Lectures/lecturesView.vue'
 // import addedstudent  from '../views/Students/AddedStudent.vue'
 // import addedcourse  from '../views/Courses/AddedCourse.vue'
 // import addedlecture from '../views/Lectures/AddedLecture.vue'
@@ -58,13 +58,13 @@ const routes = [
   //   component: addbook
     
   // },
-  // {
+  {
 
-  //   path: '/lectures',
-  //   name: 'lectures',
-  //   component: lectures
+    path: '/lectures',
+    name: 'lectures',
+    component: lectures
 
-  // },
+  },
   // {
 
   //   path: '/addlecture',
