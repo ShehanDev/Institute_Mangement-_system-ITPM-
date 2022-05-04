@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import dashboard  from '../views/Dashboard/dashboardView.vue'
 import student  from '../views/Students/studentView.vue'
-// import addstudent  from '../views/Students/StudentsAdd.vue'
+import addstudent  from '../views/Students/StudentsAdd.vue'
 // import courses  from '../views/Courses/courses.vue'
 // import addcourse  from '../views/Courses/CourseAdd.vue'
 // import booksveiw  from '../views/Library/BooksView.vue'
@@ -35,11 +35,14 @@ const routes = [
   //   name: 'courses',
   //   component: courses
   // },
-  // {
-  //   path: '/addstudent',
-  //   name: 'addstudent',
-  //   component: addstudent
-  // },
+
+  //Create AddStudent form
+  {
+    path: '/addstudent',
+    name: 'addstudent',
+    component: addstudent
+  },
+  
   // {
   //   path: '/addcourse',
   //   name: 'addcourse',
