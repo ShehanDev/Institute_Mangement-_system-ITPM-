@@ -13,7 +13,6 @@
                <v-toolbar-title class="title black--text ml-2">
                 Home  >  Students<span class="caption">
                   <br>
-                  
                 </span>
               </v-toolbar-title>
               <v-spacer></v-spacer>
