@@ -139,7 +139,7 @@
         <v-card>
              <v-card-title class="text-h5">Delete</v-card-title>
              
-            <v-card-title class="text-h10">Are you sure you want to delete this book?</v-card-title>
+            <v-card-title class="text-h10">Are you sure you want to delete this book ?</v-card-title>
 
             <v-spacer></v-spacer>
           
