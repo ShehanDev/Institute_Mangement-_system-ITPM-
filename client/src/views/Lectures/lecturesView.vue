@@ -51,8 +51,8 @@
             >
   
          <v-btn to='/addlecture' color="primary">Add Lecturer</v-btn>
+        </v-row>
         
-          </v-row>
         </template>
 
         <v-dialog
