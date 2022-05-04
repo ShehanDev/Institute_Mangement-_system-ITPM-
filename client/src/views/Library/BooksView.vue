@@ -60,7 +60,6 @@
           v-model="dialog"
           max-width="500px"
         >
-
           <v-card>
             <v-card-title>
               <span class="text-h5">{{ formTitle }}</span>
@@ -113,7 +112,6 @@
                   </v-row>
               </v-container>
             </v-card-text>
-
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn
@@ -131,8 +129,6 @@
                 Save
               </v-btn>
             </v-card-actions>
-
-            
           </v-card>
         </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="500px">
