@@ -5,7 +5,7 @@ import dashboard  from '../views/Dashboard/dashboardView.vue'
 // import addstudent  from '../views/Students/StudentsAdd.vue'
 // import courses  from '../views/Courses/courses.vue'
 // import addcourse  from '../views/Courses/CourseAdd.vue'
-// import booksveiw  from '../views/Library/BooksView.vue'
+import booksveiw  from '../views/Library/BooksView.vue'
 // import addbook  from '../views/Library/BooksAdd.vue'
 // import addlectures  from '../views/Lectures/LectureAdd.vue'
 // import lectures  from '../views/Lectures/lecturesView.vue'
@@ -46,12 +46,12 @@ const routes = [
   //   component: addcourse
     
   // },
-  // {
-  //   path: '/booksveiw',
-  //   name: 'booksveiw',
-  //   component: booksveiw
+  {
+    path: '/booksveiw',
+    name: 'booksveiw',
+    component: booksveiw
     
-  // },
+   },
   // {
   //   path: '/addbook',
   //   name: 'addbook',
