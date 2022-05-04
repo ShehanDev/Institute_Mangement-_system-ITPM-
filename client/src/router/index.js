@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import dashboard  from '../views/Dashboard/dashboardView.vue'
-// import student  from '../views/Students/studentView.vue'
+import student  from '../views/Students/studentView.vue'
 // import addstudent  from '../views/Students/StudentsAdd.vue'
 // import courses  from '../views/Courses/courses.vue'
 // import addcourse  from '../views/Courses/CourseAdd.vue'
@@ -20,11 +20,11 @@ Vue.use(VueRouter)
 const routes = [
   
 
-  // {
-  //   path: '/student',
-  //   name: 'student',
-  //   component: student
-  // },
+  {
+    path: '/student',
+    name: 'student',
+    component: student
+  },
   {
     path: '/',
     name: 'dashboard',
