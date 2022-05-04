@@ -58,6 +58,8 @@ const routes = [
   //   component: addbook
     
   // },
+  
+  //Lecturer Routes
   {
 
     path: '/lectures',
