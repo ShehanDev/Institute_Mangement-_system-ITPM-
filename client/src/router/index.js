@@ -46,6 +46,8 @@ const routes = [
   //   component: addcourse
     
   // },
+ 
+  //Library Routes
   {
     path: '/booksveiw',
     name: 'booksveiw',
