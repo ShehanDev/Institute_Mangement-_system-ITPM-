@@ -43,7 +43,7 @@ export default {
       ],
 
        reqRules: [
-        v => !!v || 'This is required feild',
+        v => !!v || 'This is required field',
       ],
       
 
