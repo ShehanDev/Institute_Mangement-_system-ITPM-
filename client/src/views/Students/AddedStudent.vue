@@ -13,6 +13,7 @@
                <v-toolbar-title class="title black--text ml-2">
                 Home  >  Students<span class="caption">
                   <br>
+                  
                 </span>
               </v-toolbar-title>
               <v-spacer></v-spacer>
@@ -128,7 +129,7 @@
         </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="500px">
         <v-card>
-             <v-card-title class="text-h5">Delete </v-card-title>
+             <v-card-title class="text-h5">Delete</v-card-title>
              
             <v-card-title class="text-h10">Are you sure you want to delete this student?</v-card-title>
 
@@ -211,11 +212,11 @@
       },
     }),
 
-    // computed: {
-    //   formTitle () {
-    //     return this.editedIndex === -1 ? 'Add Student' : 'Edit Student'
-    //   },
-    // },
+    computed: {
+      formTitle () {
+        return this.editedIndex === -1 ? 'Add Student' : 'Edit Item'
+      },
+    },
 
     watch: {
       dialog (val) {
@@ -235,7 +236,7 @@
         this.studentID = [
           {
              name: 'IT19956534',
-             Sname: 'Will Smith',
+             Sname: 'Will Smity',
              SFaculty:'Computing',
              SBatch: 'Y3S2 IT 1.2',
              SMobile: '0711387645',
@@ -269,6 +270,13 @@
              SFaculty:'Bussiness',
              SBatch: 'Y1S2 BM 1.1',
              SMobile: '0766745852',
+          },
+          {
+             name: 'IT19952020',
+             Sname: 'Algin',
+             SFaculty:'Computing',
+             SBatch: 'Y1S1',
+             SMobile: '0779028210',
           },
         ]
       },
