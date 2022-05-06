@@ -12,7 +12,7 @@ import addbook  from '../views/Library/BooksAdd.vue'
 // import addedstudent  from '../views/Students/AddedStudent.vue'
 // import addedcourse  from '../views/Courses/AddedCourse.vue'
 // import addedlecture from '../views/Lectures/AddedLecture.vue'
-// import addedbook from '../views/Library/AddedBook.vue'
+import addedbook from '../views/Library/AddedBook.vue'
 
 
 Vue.use(VueRouter)
@@ -94,11 +94,11 @@ const routes = [
   //   component: addedlecture
   // },
 
-  // {
-  //   path: '/addedbook',
-  //   name: 'addedbook',
-  //   component: addedbook
-  // },
+  {
+    path: '/addedbook',
+    name: 'addedbook',
+    component: addedbook
+  },
 ]
 
 const router = new VueRouter({
