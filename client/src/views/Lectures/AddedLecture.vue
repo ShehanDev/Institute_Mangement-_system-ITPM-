@@ -49,11 +49,11 @@
           <v-row
           align="center"
           justify="space-around"
-            >
+         >
   
-         <v-btn to='/addlecture' color="primary">Add Lecture</v-btn>
+       <v-btn to='/addlecture' color="primary">Add Lecture</v-btn>
+        </v-row>
         
-          </v-row>
         </template>
 
         <v-dialog
