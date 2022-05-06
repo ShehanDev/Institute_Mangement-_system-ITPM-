@@ -69,7 +69,7 @@
             <v-card-text>
               <v-container>
                 <v-row>
-                 
+                
                     <v-text-field
                       v-model="editedItem.BID"
                       label="Book ID"
@@ -77,7 +77,6 @@
                 </v-row>
                 <v-row>
                   
-                 
                     <v-text-field
                       v-model="editedItem.Bname"
                       label="Book name"
@@ -131,15 +130,14 @@
                 Save
               </v-btn>
             </v-card-actions>
-
-            
           </v-card>
         </v-dialog>
+
         <v-dialog v-model="dialogDelete" max-width="500px">
         <v-card>
              <v-card-title class="text-h5">Delete</v-card-title>
              
-            <v-card-title class="text-h10">Are you sure you want to delete this book?</v-card-title>
+            <v-card-title class="text-h10">Are you sure you want to delete this book ?</v-card-title>
 
             <v-spacer></v-spacer>
           
@@ -150,7 +148,6 @@
               <v-spacer></v-spacer>
             </v-card-actions>
         </v-card>
-      
         </v-dialog>
       </v-toolbar>
     </template>
