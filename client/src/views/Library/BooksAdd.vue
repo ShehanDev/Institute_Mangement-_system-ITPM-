@@ -6,7 +6,6 @@
           <v-card-title>Add Book</v-card-title>
           <v-divider></v-divider>
           <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="submitForm" class="pa-5" enctype="multipart/form-data">
-
               <v-text-field  label="Book ID" v-model="student.bookID" prepend-icon="mdi-note"   :rules="IdRules" ></v-text-field>
 
               <v-text-field  label=" Book Name" v-model="student.Name" prepend-icon="mdi-note"  :rules="nameRules" required></v-text-field>
@@ -16,7 +15,7 @@
                 <v-text-field label="Course" v-model="student.Course" prepend-icon="mdi-view-list"  :rules="reqRules"  required></v-text-field>
                 <v-text-field  label="Date" v-model="student.date" prepend-icon="mdi-calendar-range"   :rules="reqRules"  required></v-text-field>
                 <v-text-field  label="Quantity" v-model="student.Quantity" prepend-icon="mdi-note"   :rules="reqRules"  required></v-text-field>
-                <v-text-field  label="status" v-model="student.status" prepend-icon="mdi-note"   :rules="reqRules"  required></v-text-field>
+                <v-text-field  label="Status" v-model="student.status" prepend-icon="mdi-note"   :rules="reqRules"  required></v-text-field>
                  <v-btn to='/addedbook' color="primary">SAVE</v-btn>
           </v-form>
         </v-card>
@@ -63,7 +62,6 @@ export default {
 
   methods:{
     async submitForm(){
-
     
       const formData = new FormData();
       formData.append('bookID',this.student.bookID);
