@@ -67,15 +67,14 @@ const routes = [
     component: lectures
 
   },
-  // {
 
-  //   path: '/addlecture',
+  {
 
-  //   name: 'lecture',
+    path: '/addlecture',
+    name: 'lecture',
+    component: addlectures
 
-  //   component: addlectures
-
-  // },
+ },
   // {
   //   path: '/addedstudent',
   //   name: 'addedstudent',
@@ -88,11 +87,12 @@ const routes = [
   //   component: addedcourse
   // },
 
-  // {
-  //   path: '/addedlecture',
-  //   name: 'addedlecture',
-  //   component: addedlecture
-  // },
+  
+    {
+        path: '/addedlecture',
+        name: 'addedlecture',
+       component: addedlecture
+    },
 
   // {
   //   path: '/addedbook',
