@@ -5,7 +5,7 @@ class StudentApi{
   getAll() {
     return http.get("/student");
   }
-  
+  //Get student
   getById(id) {
     return http.get(`/student/${id}`);
    
