@@ -258,9 +258,8 @@
             SFaculty: 'Computing',
             LMobile: '0762345678',
             email: 'chathu78@gmail.com',
-             
-           
           },
+          
           {
             LID:'003',
             Lname: 'S.W.Samaranayaka',
