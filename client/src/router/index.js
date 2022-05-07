@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import dashboard  from '../views/Dashboard/dashboardView.vue'
 import student  from '../views/Students/studentView.vue'
 import addstudent  from '../views/Students/StudentsAdd.vue'
-import addedstudent  from '../views/Students/AddedStudent.vue'
+
 // import courses  from '../views/Courses/courses.vue'
 // import addcourse  from '../views/Courses/CourseAdd.vue'
 // import booksveiw  from '../views/Library/BooksView.vue'
@@ -32,13 +32,7 @@ const routes = [
     component: dashboard
   },
 
-  {
-    path: '/addedstudent',
-    name: 'addedstudent',
-    component: addedstudent
-  },
-
-
+  
 
 
 

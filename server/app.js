@@ -33,7 +33,7 @@ mongoose.connect(process.env.DB_URI,{
 // //post routes
 app.use('/api/post',require('../server/routes/postRoutes')),
 
-// app.use('/api/student',require('../server/routes/studentRoutes')),
+app.use('/api/student',require('../server/routes/studentRoutes')),
 // app.use('/api/lecture',require('../server/routes/lectureRoutes')),
 // app.use('/api/book',require('../server/routes/bookRoutes')),
 // app.use('/api/course',require('../server/routes/courseRoutes'))
