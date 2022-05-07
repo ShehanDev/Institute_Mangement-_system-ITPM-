@@ -1,13 +1,13 @@
 <template>
   <v-container>
     <v-toolbar-title class="title black--text ml-2">
-      ALL   LECTURES<span class="caption">
+      ALL   LECTURERS<span class="caption">
         <br />
         <br />
       </span>
     </v-toolbar-title>
     <v-toolbar-title class="title black--text ml-2">
-      Home > Lectures
+      Home > Lecturers
       <span class="caption">
         <br />
       </span>
