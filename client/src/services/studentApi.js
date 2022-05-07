@@ -5,12 +5,14 @@ class StudentApi{
   getAll() {
     return http.get("/student");
   }
+  
   //Get student
   getById(id) {
     return http.get(`/student/${id}`);
    
   }
 
+  //Create new Student
    create(data) {
     return http.post("/student", data);
   }
