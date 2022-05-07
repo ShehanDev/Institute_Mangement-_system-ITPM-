@@ -22,6 +22,7 @@ class StudentApi{
     return http.put(`/student/${id}`,data);   
   }
   
+  //Delete Student
   delete(id) {
     return http.delete(`/student/${id}`);
   }
