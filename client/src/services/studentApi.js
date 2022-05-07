@@ -5,7 +5,7 @@ class StudentApi{
   getAll() {
     return http.get("/student");
   }
-  
+
   //Get student
   getById(id) {
     return http.get(`/student/${id}`);
@@ -16,10 +16,10 @@ class StudentApi{
    create(data) {
     return http.post("/student", data);
   }
+
+  //Update student
   update(id,data) {
-   
-    return http.put(`/student/${id}`,data);
-    
+    return http.put(`/student/${id}`,data);   
   }
   
   delete(id) {
