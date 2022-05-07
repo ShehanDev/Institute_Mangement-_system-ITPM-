@@ -1,13 +1,16 @@
 import http from "../http-common";
 
 class StudentApi{
+  //Get all students
   getAll() {
-    return http.get("/student");
+    return http.get("/students");
   }
+  
   getById(id) {
     return http.get(`/student/${id}`);
    
   }
+
    create(data) {
     return http.post("/student", data);
   }
