@@ -3,9 +3,6 @@ const router = express.Router();
 const studentapi = require('../controllers/studenntControllers');
 
 
-
-
-
 //get all the student 
 router.get('/',studentapi.fetchAllstudents);
 
