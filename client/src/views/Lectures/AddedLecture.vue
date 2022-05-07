@@ -13,8 +13,7 @@
                <v-toolbar-title class="title black--text ml-2">
                 Home  >  Lecteres<span class="caption">
                   <br>
-                  
-                   </span>
+                  </span>
               </v-toolbar-title>
               <v-spacer></v-spacer>
               <br>
@@ -53,8 +52,8 @@
   
        <v-btn to='/addlecture' color="primary">Add Lecture</v-btn>
         </v-row>
-        
-        </template>
+
+       </template>
 
         <v-dialog
           v-model="dialog"

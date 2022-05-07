@@ -73,8 +73,8 @@ const routes = [
     path: '/addlecture',
     name: 'lecture',
     component: addlectures
+  },
 
- },
   // {
   //   path: '/addedstudent',
   //   name: 'addedstudent',
