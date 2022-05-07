@@ -71,9 +71,9 @@
           { title: 'Lectures', icon: 'mdi-human-male-board' ,path:"/lectures"},
           { title: 'Library', icon: 'mdi-book-open-page-variant' ,path:"/booksveiw"},
           { title: 'My Account', icon: 'mdi-account-box-multiple', },
-        ]
-      }
-  }
+        ],
+      };
+  },
    
-  }
+  };
 </script>
