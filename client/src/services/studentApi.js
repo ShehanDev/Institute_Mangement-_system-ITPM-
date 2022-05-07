@@ -3,7 +3,7 @@ import http from "../http-common";
 class StudentApi{
   //Get all students
   getAll() {
-    return http.get("/students");
+    return http.get("/student");
   }
   
   getById(id) {
