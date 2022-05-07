@@ -11,7 +11,7 @@ import addlectures  from '../views/Lectures/LectureAdd.vue'
 import lectures  from '../views/Lectures/lecturesView.vue'
 // import addedstudent  from '../views/Students/AddedStudent.vue'
 // import addedcourse  from '../views/Courses/AddedCourse.vue'
-import addedlecture from '../views/Lectures/AddedLecture.vue'
+
 // import addedbook from '../views/Library/AddedBook.vue'
 
 
@@ -88,11 +88,7 @@ const routes = [
   // },
 
 
-    {
-        path: '/addedlecture',
-        name: 'addedlecture',
-       component: addedlecture
-    },
+
 
   // {
   //   path: '/addedbook',

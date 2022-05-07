@@ -1,333 +1,347 @@
- <template>
- <v-container>
-   <v-alert border="left" close-text="Close Alert" color="green accent-4" dark dismissible v-if="this.$route.params.message">
-     {{this.$route.params.message}}
-   </v-alert>
+<template>
+  <v-container>
+    <v-toolbar-title class="title black--text ml-2">
+      ALL   LECTURES<span class="caption">
+        <br />
+        <br />
+      </span>
+    </v-toolbar-title>
+    <v-toolbar-title class="title black--text ml-2">
+      Home > Lectures
+      <span class="caption">
+        <br />
+      </span>
+    </v-toolbar-title>
+    <v-spacer></v-spacer>
+    <br />
 
-   <v-toolbar-title class="title black--text ml-2">
-                ALL LECTURERS<span class="caption">
-                  <br>
-                  <br>
-                </span>
-              </v-toolbar-title>
-               <v-toolbar-title class="title black--text ml-2">
-                Home  >  Lecturers<span class="caption">
-                  <br>
-                </span>
-              </v-toolbar-title>
-              <v-spacer></v-spacer>
-              <br>
- <div class="table" style="height:100vh;">
-  <v-data-table
-    :headers="headers"
-    :items="lectureID"
-    class="elevation-1"
-  >
-    <template v-slot:top>
-      <v-toolbar
-        flat
+    <v-alert
+      border="left"
+      close-text="Close Alert"
+      color="green accent-4"
+      dark
+      dismissible
+      v-if="alt"
+    >
+      {{ this.message }}
+    </v-alert>
+
+    <div class="table" style="height: 100vh">
+      
+      <v-data-table
+        :headers="headers"
+        :items="lectures"
+        class="elevation-1"
+        :items-per-page="5"
+        item-key="name"
+        :search="search"
+        :sort-desc="[false, true]"
+        multi-sort
+        :footer-props="{
+          showFirstLastPage: true,
+          firstIcon: 'mdi-arrow-collapse-left',
+          lastIcon: 'mdi-arrow-collapse-right',
+          prevIcon: 'mdi-minus',
+          nextIcon: 'mdi-plus',
+        }"
       >
-        <v-toolbar-title>Manage Lecturers</v-toolbar-title>
-        <v-divider
-          class="mx-4"
-          inset
-          vertical3
-        ></v-divider>
-        <v-spacer></v-spacer>
-         <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Search"
-        single-line
-        hide-details
-      ></v-text-field>
+        <template v-slot:top>
+          <v-toolbar flat>
+            <v-toolbar-title>Manage Lectures</v-toolbar-title>
+            <v-divider class="mx-4" inset vertical></v-divider>
+            <v-spacer></v-spacer>
+            
+            
+             <v-text-field
+              v-model="search"
+              append-icon="mdi-magnify"
+              label="Search"
+           
+            ></v-text-field>
+             <v-spacer></v-spacer>
+            <template>
+              <v-row align="center" justify="space-around">
+                <v-btn to="/addlecture" color="primary">Add Lecture</v-btn>
+              </v-row>
+            </template>
 
-      <v-spacer></v-spacer>
-    
-        <template>
-          <v-row
-          align="center"
-          justify="space-around"
+            <v-dialog v-model="dialogDelete" max-width="500px">
+              <v-card>
+                <v-card-title class="text-h5">Delete</v-card-title>
+                <v-card-title class="text-h10">
+                  Are you sure you want to remove this Lececture  ?</v-card-title
+                >
+                <v-spacer></v-spacer>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="blue darken-1" text @click="closeDelete"
+                    >Cancel</v-btn
+                  >
+                  <v-btn
+                    color="blue darken-1"
+                    text
+                    @click="deleteItemConfirm(id)"
+                    >OK</v-btn
+                  >
+                  <v-spacer></v-spacer>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+
+            <v-dialog
+              v-if="currentLectures"
+              v-model="editdialog"
+              max-width="500px"
             >
-  
-         <v-btn to='/addlecture' color="primary">Add Lecturer</v-btn>
-        </v-row>
-        
+              <v-card>
+                <v-card-title>
+                  <span class="text-h5">Edit Lecture</span>
+                </v-card-title>
+
+                <v-card-text>
+                  <v-container>
+                     <v-row>
+                      <v-text-field
+                        v-model="currentLectures.lid"
+                        label="lecture id"
+                      ></v-text-field> </v-row
+                    >
+                    <v-row>
+                      <v-text-field
+                        v-model="currentLectures.name"
+                        label="name"
+                      ></v-text-field> </v-row
+                    ><v-row>
+                      <v-text-field
+                        v-model="currentLectures.faculty"
+                        label="faculty"
+                      ></v-text-field> </v-row
+                    ><v-row>
+                      <v-text-field
+                        label="gender"
+                        v-model="currentLectures.gender"
+                      >
+                      </v-text-field> </v-row
+                    ><v-row>
+                      <v-text-field
+                        v-model="currentLectures.mobile"
+                        label="mobile"
+                      ></v-text-field>
+                    </v-row>
+                    <v-row>
+                      <v-text-field
+                        v-model="currentLectures.email"
+                        label="email"
+                      ></v-text-field>
+                    </v-row>
+                  </v-container>
+                </v-card-text>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="blue darken-1" text @click="close">
+                    Cancel
+                  </v-btn>
+
+                  <v-btn
+                    color="blue darken-1"
+                    text
+                    @click=" updateLecture(currentLectures)"
+                    >Save</v-btn
+                  >
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-toolbar>
         </template>
 
-        <v-dialog
-          v-model="dialog"
-          max-width="500px"
-        >
-
-          <v-card>
-            <v-card-title>
-              <span class="text-h5">{{ formTitle }}</span>
-            </v-card-title>
-
-            <v-card-text>
-              <v-container>
-                <v-row>
-                
-                    <v-text-field
-                      v-model="editedItem.LID"
-                      label="LectureID"
-                    ></v-text-field>
-                </v-row><v-row>
-
-                  
-                    <v-text-field
-                      v-model="editedItem.Lname"
-                      label="Name"
-                    ></v-text-field>
-                 </v-row><v-row>
-
-                  
-                    <v-text-field
-                      v-model="editedItem.gender"
-                      label="Gender"
-                    ></v-text-field>
-                    </v-row><v-row>
-
-                 
-                    <v-text-field
-                      v-model="editedItem.SFaculty"
-                      label="Faculty"
-                    ></v-text-field>
-                  </v-row><v-row>
-
-                    <v-text-field
-                      v-model="editedItem.LMobile"
-                      label="Mobile No"
-                    ></v-text-field>
-                    </v-row><v-row>
-                  
-                 
-                    <v-text-field
-                      v-model="editedItem.email"
-                      label="Email"
-                    ></v-text-field>
-
-                
-                </v-row>
-              </v-container>
-            </v-card-text>
-
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="close"
-              >
-                Cancel
-              </v-btn>
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="save"
-              >
-                Save
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-  
-        <v-dialog v-model="dialogDelete" max-width="500px">
-        <v-card>
-             <v-card-title class="text-h5">Delete</v-card-title>
-             
-            <v-card-title class="text-h10">Are you sure you want to delete this lecture?</v-card-title>
-
-            <v-spacer></v-spacer>
-          
-            <v-card-actions>
-                <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
-        </v-card>
-      
-        </v-dialog>
-      </v-toolbar>
-    </template>
         <template v-slot:[`item.actions`]="{ item }">
-      <v-icon
-        small
-        class="mr-2"
-        @click="editItem(item)"
-      >
-        mdi-pencil
-      </v-icon>
-      <v-icon
-        small
-        @click="deleteItem(item)"
-      >
-        mdi-delete
-      </v-icon>
-    </template>
-    <template v-slot:no-data>
-      <v-btn
-        color="primary"
-        @click="initialize"
-      >
-        Reset
-      </v-btn>
-    </template>
-  </v-data-table>
-
- </div>
- </v-container>
+          <v-icon small class="mr-2" @click="editItem(item.id)"
+            >mdi-pencil</v-icon
+          >
+          <v-icon small @click="deleteItem(item.id)">mdi-delete</v-icon>
+        </template>
+      </v-data-table>
+    </div>
+  </v-container>
 </template>
+      
 
 <script>
-  export default {
-    data: () => ({
-      dialog: false,
+import lectureApi from "../../services/lectureApi";
+
+export default {
+  data() {
+    return {
+      alt: false,
+      massage: "",
+      lectures: [],
+      title: "name",
+      dialog: true,
       dialogDelete: false,
+      id: "",
+      filterable: false,
+      search:"",
+      editdialog: false,
+      currentLectures: "",
+      message: "",
       headers: [
-        {
-          text: 'LECTURE ID',
-          align: 'start',
-          sortable: false,
-          value: 'LID',
-        },
-      
-        { text: 'NAME', value: 'Lname' },
+        { text: "ID",  value: "Lid" },
+        { text: 'NAME', value: 'name' },
         { text: 'GENDER', value: 'gender' },
-        { text: 'FACULTY', value: 'SFaculty' },
-        { text: 'MOBILE NO', value: 'LMobile' },
+        { text: 'FACULTY', value: 'faculty' },
+        { text: 'MOBILE NO', value: 'mobile' },
         { text: 'EMAIL', value: 'email' },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
-      lectureID: [],
-      editedIndex: -1,
-      editedItem: {
-        LID:'',
-        Lname: '',
-        gender: 0,
-        SFaculty: 0,
-        LMobile: 0,
-        email: 0,
-      },
-      defaultItem: {
-        LID:'',
-        Lname: '',
-        gender: 0,
-        SFaculty: 0,
-        LMobile: 0,
-        email: 0,
-      },
-    }),
+    };
+  },
+  methods: {
+    retrieveLectures() {
+      // axios.get("localhost:3000/api/lecture")
+      lectureApi
+        .getAll()
+        .then((response) => {
+          this.lectures = response.data.map(this.getDisplayLectures);
 
-    computed: {
-      formTitle () {
-        return this.editedIndex === -1 ? 'Add Lecture' : 'Edit Item'
-      },
-    },
-
-    watch: {
-      dialog (val) {
-        val || this.close()
-      },
-      dialogDelete (val) {
-        val || this.closeDelete()
-      },
-    },
-
-    created () {
-      this.initialize()
-    },
-
-    methods: {
-      initialize () {
-        this.lectureID = [
-          {
-            LID:'001',
-            Lname: 'L.L.Hewapathirana',
-            gender: 'Female',
-            SFaculty: 'Computing',
-            LMobile: '0767856123',
-            email: 'lakmi76@gmail.com',
-          },
-          {
-            LID:'002',
-            Lname: 'D.H.K.Chathurani',
-            gender: 'Female',
-            SFaculty: 'Computing',
-            LMobile: '0762345678',
-            email: 'chathu78@gmail.com',
-          },
-          
-          {
-            LID:'003',
-            Lname: 'S.W.Samaranayaka',
-            gender: 'Female',
-            SFaculty: 'Business',
-            LMobile: '0712389567',
-            email: 'wasu90@gmail.com', 
-          },
-          {
-            LID:'004',
-            Lname: 'T.S.Mallawaarachchi',
-            gender: 'Male',
-            SFaculty: 'Engineering',
-            LMobile: '0784537123',
-            email: 'shehan90@gmail.com', 
-     
-            
-          },
-        ]
-      },
-
-      editItem (item) {
-        this.editedIndex = this.lectureID.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialog = true
-      },
-
-      deleteItem (item) {
-        this.editedIndex = this.lectureID.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialogDelete = true
-      },
-
-      deleteItemConfirm () {
-        this.lectureID.splice(this.editedIndex, 1)
-        this.closeDelete()
-      },
-
-      close () {
-        this.dialog = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
+          console.log(response.data);
         })
-      },
-
-      closeDelete () {
-        this.dialogDelete = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
-      },
-
-      save () {
-        if (this.editedIndex > -1) {
-          Object.assign(this.lectureID[this.editedIndex], this.editedItem)
-        } else {
-          this.lectureID.push(this.editedItem)
-        }
-        this.close()
-      },
+        .catch((e) => {
+          console.log(e);
+        });
     },
-  }
+
+    refreshList() {
+      this.retrieveLectures();
+    },
+
+    
+
+    deleteLecture(id) {
+      lectureApi
+        .delete(id)
+        .then((response) => {
+          console.log(response);
+          alt = true;
+          massage = "Delete successfull  !!";
+          this.refreshList();
+        })
+        .catch((e) => {
+          console.log(e);
+          massage = "Delete error  !!";
+        });
+    },
+
+    getDisplayLectures(lecture) {
+      return {
+        id: lecture._id,
+        Lid:lecture.lid ,
+        name:lecture.name,
+        faculty: lecture.faculty,
+        gender: lecture.gender,
+        email: lecture.email,
+        mobile:lecture.mobile,
+      };
+    },
+
+
+    editItem(id) {
+      this.id = id;
+      console.log(id);
+      this.editdialog = true;
+      this.getLectureById(id);
+    },
+
+    getLectureById(id) {
+      lectureApi
+        .getById(id)
+        .then((response) => {
+          this.currentLectures = response.data;
+
+          console.log(response.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+
+     updateLecture(currentLectures) {
+      var id = currentLectures._id;
+      var data = {
+       lid:currentLectures.lid,
+        name: currentLectures.name,
+        faculty: currentLectures.faculty,
+        gender: currentLectures.gender,
+         mobile: currentLectures.mobile,
+         email:currentLectures.email
+      };
+      console.log(data);
+      lectureApi
+        .update(id, data)
+        .then((response) => {
+          console.log(response.data);
+          this.message = "The tutorial was updated successfully!";
+          this.editdialog = false;
+        
+          this.refreshList();
+           this.editdialog = false;
+        })
+        .catch((e) => {
+          console.log(id, data);
+          console.log(e);
+        });
+    },
+
+    deleteItem(id) {
+      this.id = id;
+      this.dialogDelete = true;
+    },
+
+    deleteItemConfirm(id) {
+      console.log(id);
+
+      lectureApi
+        .delete(id)
+        .then((res) => {
+          console.log(res);
+          this.refreshList();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+
+      this.dialogDelete = false;
+    },
+
+    closeDelete() {
+      this.dialogDelete = false;
+      this.$nextTick(() => {
+        this.editedItem = Object.assign({}, this.defaultItem);
+        this.editedIndex = -1;
+      });
+    },
+
+    close() {
+      this.editdialog = false;
+    },
+    alartDisplay(massage) {
+      return massage;
+    },
+  },
+  watch: {
+    editdialog(val) {
+      val || this.close();
+    },
+    dialogDelete(val) {
+      val || this.closeDelete();
+    },
+  },
+
+  mounted() {
+    this.retrieveLectures();
+  },
+};
 </script>
 
 <style>
-.myTable{
-  overflow-y: hidden;
-}
 </style>
