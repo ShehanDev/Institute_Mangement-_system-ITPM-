@@ -12,7 +12,7 @@
      <container>
        <span class="title black--text ml-2">Home > Books </span>
      </container></v-col><v-spacer></v-spacer><v-spacer></v-spacer><v-spacer></v-spacer><v-col>
-      <container><v-btn color="primary" button to="/lecturesReport">Generate PDF</v-btn></container></v-col>
+      <container><v-btn color="primary" button to="/BookReport">Generate PDF</v-btn></container></v-col>
         </v-row>
       </container>
     </v-toolbar-title>
