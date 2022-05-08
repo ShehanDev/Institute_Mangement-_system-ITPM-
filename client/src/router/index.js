@@ -75,6 +75,11 @@ const routes = [
     component: addlectures
   },
 
+  {
+    path: '/lecturesReport',
+    name: 'lecturesReport',
+    component: lecturesReport
+  },
   // {
   //   path: '/addedstudent',
   //   name: 'addedstudent',
