@@ -128,7 +128,7 @@
                     <v-row>
                       <v-text-field
                         v-model="currentBook.quntity"
-                        label="Quntity"
+                        label="Quantity"
                       ></v-text-field>
                     </v-row>
                     <v-row>
@@ -216,8 +216,6 @@ export default {
     refreshList() {
       this.retrieveCourses();
     },
-
-    
 
     deleteStudent(id) {
       bookApi
