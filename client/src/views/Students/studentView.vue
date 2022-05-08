@@ -323,34 +323,7 @@ export default {
     },
 
 
-    generatePDF() {
-        this.retrieveStudents();
-          studentApi
-        .getAll()
-        .then((response) => {
-           this.students = response.body;
-            this.userArray  = [];
-            this.user = [];
-            /*create new jspdf object*/
-            const doc = new jspdf()
-            /*set array forma using jspdf*/
-            this.students.map((u) => {
-            this.student = [u.no, u.name, u.faculty,u.batch,u.mobile];
-            this.userArray.push(this.students);
-            }     );
-          
-          //  <v-btn to='/studentView' color="#000000">Back</v-btn>
-          
-            doc.autoTable(doc,{
-              head :[['STUDENT Id','NAME','FACULTY','BATCH','MOBILE NO']],
-              body:this.userArray,
-            
-            })
-             console.log(response.data);
-          doc.save("pdf.pdf");
-        });
-        }
-
+   
   },
   watch: {
     editdialog(val) {
