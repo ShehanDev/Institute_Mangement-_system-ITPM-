@@ -5,7 +5,7 @@
         <v-card class="pa-s">
           
            <div v-if="!submitted"> 
-             <v-card-title>Add Lecture</v-card-title>
+             <v-card-title>Add Lecturer</v-card-title>
           <v-divider></v-divider>
 
           <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="submitForm" class="pa-5" enctype="multipart/form-data">

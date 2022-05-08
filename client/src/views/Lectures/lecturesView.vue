@@ -47,7 +47,7 @@
       >
         <template v-slot:top>
           <v-toolbar flat>
-            <v-toolbar-title>Manage Lectures</v-toolbar-title>
+            <v-toolbar-title>Manage Lecturers</v-toolbar-title>
             <v-divider class="mx-4" inset vertical></v-divider>
             <v-spacer></v-spacer>
             
@@ -61,7 +61,7 @@
              <v-spacer></v-spacer>
             <template>
               <v-row align="center" justify="space-around">
-                <v-btn to="/addlecture" color="primary">Add Lecture</v-btn>
+                <v-btn to="/addlecture" color="primary">Add Lecturer</v-btn>
               </v-row>
             </template>
 
@@ -95,7 +95,7 @@
             >
               <v-card>
                 <v-card-title>
-                  <span class="text-h5">Edit Lecture</span>
+                  <span class="text-h5">Edit Lecturer</span>
                 </v-card-title>
 
                 <v-card-text>
