@@ -33,6 +33,12 @@ const routes = [
     component: dashboard
   },
 
+  {
+    path: '/studentReport',
+    name: 'studentReport',
+    component: studentReport
+  },
+
   
 
 
