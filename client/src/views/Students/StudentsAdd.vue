@@ -9,23 +9,25 @@
                 <v-divider></v-divider>
                 <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="submitForm" class="pa-5" enctype="multipart/form-data">
                   
-                  <v-text-field  label="Student Id " v-model="student.No" prepend-icon="mdi-note"  :rules="NoRules" required></v-text-field>
+                <v-text-field  label="Student Id " v-model="student.No" prepend-icon="mdi-note"  :rules="NoRules" required></v-text-field>
 
-                    <v-text-field  label="Name" v-model="student.Name" prepend-icon="mdi-note"  :rules="nameRules" required></v-text-field>
+                <v-text-field  label="Name" v-model="student.Name" prepend-icon="mdi-note"  :rules="nameRules" required></v-text-field>
 
-                    <v-text-field  label="Faculty" v-model="student.Faculty" prepend-icon="mdi-view-list"  :rules="reqRules" required></v-text-field>
+                <v-text-field  label="Faculty" v-model="student.Faculty" prepend-icon="mdi-view-list"  :rules="reqRules" required></v-text-field>
 
-                    <v-text-field label="Batch" v-model="student.Batch" prepend-icon="mdi-view-list"  :rules="reqRules"  required></v-text-field>
+                <v-text-field label="Batch" v-model="student.Batch" prepend-icon="mdi-view-list"  :rules="reqRules"  required></v-text-field>
 
-                    <v-text-field  label="MobileNo" v-model="student.MobileNo" prepend-icon="mdi-cellphone"   :rules="mobileRules"  required></v-text-field>
+                <v-text-field  label="MobileNo" v-model="student.MobileNo" prepend-icon="mdi-cellphone"   :rules="mobileRules"  required></v-text-field>
                   
 
-                      <v-btn to='' color="primary" @click=" savestudent()">SAVE</v-btn>
+                <v-btn to='' color="primary" @click=" savestudent()">SAVE</v-btn>
                       
                   
               
                 </v-form>
-          </div>
+             </div>
+
+             
           <div  v-else>
           <v-alert 
             color="green"
