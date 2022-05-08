@@ -146,10 +146,10 @@
         </template>
 
         <template v-slot:[`item.actions`]="{ item }">
-          <v-icon small class="mr-2" @click="editItem(item.id)"
+          <br><v-icon small class="mr-2" @click="editItem(item.id)"
             >mdi-pencil</v-icon
           >
-          <v-icon small @click="deleteItem(item.id)">mdi-delete</v-icon>
+           <v-icon small @click="deleteItem(item.id)">mdi-delete</v-icon>
         </template>
       </v-data-table>
     </div>
@@ -177,7 +177,7 @@ export default {
       message: "",
       headers: [
         // { text: "ID", align: "start", sortable: false, value: "id" },
-        { text: "ID ", value: "no" },
+        { text: "uID ", value: "no" },
         { text: "NAME", value: "name" },
         { text: "FACULTY", value: "faculty" },
         { text: "LECTURER", value: "lecturer" },
