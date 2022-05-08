@@ -14,19 +14,18 @@ import lecturesReport from '../views/Lectures/lecturesReport.vue'
 
 
 
+
 Vue.use(VueRouter)
 
 const routes = [
 
-  
-  //create student route
  
+
   {
     path: '/',
     name: 'dashboard',
     component: dashboard
   },
- 
   {
     path: '/courses',
     name: 'courses',
