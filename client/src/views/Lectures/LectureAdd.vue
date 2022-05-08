@@ -10,7 +10,7 @@
 
           <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="submitForm" class="pa-5" enctype="multipart/form-data">
 
-              <v-text-field  label="Lecture Id" v-model="lecture.LID" prepend-icon="mdi-note"   :rules="IdRules" ></v-text-field>
+              <v-text-field  label="Lecturer Id" v-model="lecture.LID" prepend-icon="mdi-note"   :rules="IdRules" ></v-text-field>
 
               <v-text-field  label="Name" v-model="lecture.Name" prepend-icon="mdi-note"  :rules="nameRules" required></v-text-field>
 
