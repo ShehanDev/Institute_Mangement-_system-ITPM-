@@ -193,7 +193,6 @@ export default {
         .getAll()
         .then((response) => {
           this.courses = response.data.map(this.getDisplayCourses);
-
           console.log(response.data);
         })
         .catch((e) => {
