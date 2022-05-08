@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import dashboard  from '../views/Dashboard/dashboardView.vue'
 import student  from '../views/Students/studentView.vue'
 import addstudent  from '../views/Students/StudentsAdd.vue'
+import studentReport  from '../views/Students/studentReport.vue'
 
 // import courses  from '../views/Courses/courses.vue'
 // import addcourse  from '../views/Courses/CourseAdd.vue'
