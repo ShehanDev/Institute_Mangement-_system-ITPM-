@@ -68,7 +68,7 @@
           { title: 'Dashboard', icon: 'mdi-view-dashboard',path:"/" },
           { title: 'Student', icon: 'mdi-school',path:'/student'},
           { title: 'Course', icon: 'mdi-folder-multiple-outline' ,path:"/courses"},
-          { title: 'Lectures', icon: 'mdi-human-male-board' ,path:"/lectures"},
+          { title: 'Lecturers', icon: 'mdi-human-male-board' ,path:"/lectures"},
           { title: 'Library', icon: 'mdi-book-open-page-variant' ,path:"/booksveiw"},
           { title: 'My Account', icon: 'mdi-account-box-multiple', },
         ],

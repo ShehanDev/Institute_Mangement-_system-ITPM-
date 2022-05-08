@@ -7,6 +7,9 @@ import addcourse  from '../views/Courses/CourseAdd.vue'
 import student  from '../views/Students/studentView.vue'
 import addstudent  from '../views/Students/StudentsAdd.vue'
 import studentReport  from '../views/Students/studentReport.vue'
+import addlectures  from '../views/Lectures/LectureAdd.vue'
+import lectures  from '../views/Lectures/lecturesView.vue'
+import lecturesReport from '../views/Lectures/lecturesReport.vue'
 
 
 
@@ -57,7 +60,27 @@ const routes = [
     component: addstudent
   },
   
-  
+  {
+
+    path: '/lectures',
+    name: 'lectures',
+    component: lectures
+
+  },
+
+  {
+
+    path: '/addlecture',
+    name: 'lecture',
+    component: addlectures
+  },
+
+  {
+    path: '/lecturesReport',
+    name: 'lecturesReport',
+    component: lecturesReport
+  },
+
 ]
 
 const router = new VueRouter({
