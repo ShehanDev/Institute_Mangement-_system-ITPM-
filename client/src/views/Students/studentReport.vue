@@ -1,18 +1,26 @@
 <template>
   <v-container>
     <v-toolbar-title class="title black--text ml-1">
-      ALL STUDENTS<span class="caption">
+      STUDENTS REPORT
+      <span class="caption">
         <br />
       </span>
     </v-toolbar-title>
     <v-toolbar-title class="title black--text ml-2">
       <container>
         <v-row>
-      <v-col>
-     <container>
-       <span class="title black--text ml-2">Home > Students </span>
-     </container></v-col><v-spacer></v-spacer><v-spacer></v-spacer><v-spacer></v-spacer><v-col>
-      <container><v-btn color="primary" button to="/studentReport">Generate PDF</v-btn></container></v-col>
+          <v-col>
+            <container>
+              <span class="title black--text ml-2"
+                >Home > Students > Report</span
+              >
+            </container></v-col
+          ><v-spacer></v-spacer><v-spacer></v-spacer><v-spacer></v-spacer
+          ><v-col>
+            <container
+              ><v-btn color="primary" @click="downloadPDF()" button>Download PDF</v-btn></container
+            ></v-col
+          >
         </v-row>
       </container>
     </v-toolbar-title>
@@ -28,8 +36,8 @@
     >
       {{ this.message }}
     </v-alert>
-
-    <div class="table" style="height: 100vh">
+    <div >
+    <div class="table" style="height: 100vh" id="report">
       <v-data-table
         :headers="headers"
         :items="students"
@@ -49,113 +57,17 @@
       >
         <template v-slot:top>
           <v-toolbar flat>
-            <v-toolbar-title>Manage Students</v-toolbar-title>
+            <v-toolbar-title>Student Report</v-toolbar-title>
             <v-divider class="mx-4" inset vertical></v-divider>
             <v-spacer></v-spacer>
 
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
-            ></v-text-field>
             <v-spacer></v-spacer>
-            <template>
-              <v-row align="center" justify="space-around">
-                <v-btn to="/addstudent" color="primary">Add Student</v-btn>
-              </v-row>
-            </template>
-
-            <v-dialog v-model="dialogDelete" max-width="500px">
-              <v-card>
-                <v-card-title class="text-h5">Delete</v-card-title>
-                <v-card-title class="text-h10">
-                  Are you sure you want to delete this student ?</v-card-title
-                >
-                <v-spacer></v-spacer>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="closeDelete"
-                    >Cancel</v-btn
-                  >
-                  <v-btn
-                    color="blue darken-1"
-                    text
-                    @click="deleteItemConfirm(id)"
-                    >OK</v-btn
-                  >
-                  <v-spacer></v-spacer>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-
-            <v-dialog
-              v-if="currentStudent"
-              v-model="editdialog"
-              max-width="500px"
-            >
-              <v-card>
-                <v-card-title>
-                  <span class="text-h5">Edit Student</span>
-                </v-card-title>
-
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-text-field
-                        v-model="currentStudent.no"
-                        label="StudentID"
-                      ></v-text-field>
-                    </v-row>
-                    <v-row>
-                      <v-text-field
-                        v-model="currentStudent.name"
-                        label="Name"
-                      ></v-text-field> </v-row
-                    ><v-row>
-                      <v-text-field
-                        v-model="currentStudent.faculty"
-                        label="Faculty"
-                      ></v-text-field> </v-row
-                    ><v-row>
-                      <v-text-field
-                        label="Batch"
-                        v-model="currentStudent.batch"
-                      >
-                      </v-text-field> </v-row
-                    ><v-row>
-                      <v-text-field
-                        v-model="currentStudent.mobile"
-                        label="Mobile No"
-                      ></v-text-field>
-                    </v-row>
-                  </v-container>
-                </v-card-text>
-
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="close">
-                    Cencel
-                  </v-btn>
-
-                  <v-btn
-                    color="blue darken-1"
-                    text
-                    @click="updateStudent(currentStudent)"
-                    >Save</v-btn
-                  >
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
           </v-toolbar>
         </template>
 
-        <template v-slot:[`item.actions`]="{ item }">
-          <v-icon small class="mr-2" @click="editItem(item.id)"
-            >mdi-pencil</v-icon
-          >
-          <v-icon small @click="deleteItem(item.id)">mdi-delete</v-icon>
-        </template>
+        <template v-slot:[`item.actions`]="{ item }"> </template>
       </v-data-table>
+    </div>
     </div>
   </v-container>
 </template>
@@ -189,7 +101,7 @@ export default {
         { text: "FACULTY", value: "faculty" },
         { text: "BATCH", value: "batch" },
         { text: "MOBILE NO", value: "mobile" },
-        { text: "ACTIONS", value: "actions", sortable: false },
+        
       ],
 
        
@@ -322,9 +234,13 @@ export default {
       return massage;
     },
 
+        downloadPDF(){
+        const element = document.getElementById("report");
+        html2pdf().from(element).save();},
 
-   
   },
+
+
   watch: {
     editdialog(val) {
       val || this.close();
