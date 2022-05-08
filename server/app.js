@@ -32,8 +32,8 @@ mongoose.connect(process.env.DB_URI,{
 
 // //post routes
 app.use('/api/post',require('../server/routes/postRoutes')),
-//server running
 app.use('/api/course',require('../server/routes/courseRoutes'))
+app.use('/api/student',require('../server/routes/studentRoutes')),
 //start server
 app.listen(port,() =>  console.log(`server up and Running at http://localhost:${port} `));
 

@@ -2,8 +2,8 @@
   <v-app id="inspire">
     <v-navigation-drawer
       v-model="drawer"
-      app
-      class="cyan darken-4"
+      app dark color="#263238"
+      
     >
         <div class="text-center mt-5">
            <h1 class="white--text">E-Learn</h1>
@@ -71,9 +71,9 @@
           { title: 'Lectures', icon: 'mdi-human-male-board' ,path:"/lectures"},
           { title: 'Library', icon: 'mdi-book-open-page-variant' ,path:"/booksveiw"},
           { title: 'My Account', icon: 'mdi-account-box-multiple', },
-        ]
-      }
-  }
+        ],
+      };
+  },
    
-  }
+  };
 </script>
