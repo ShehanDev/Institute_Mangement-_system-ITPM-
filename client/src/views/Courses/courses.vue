@@ -253,30 +253,7 @@ export default {
         });
     },
 
-     updateCourse(currentCourse) {
-      var id = currentCourse._id;
-      var data = {
-        name: currentCourse.name,
-        faculty: currentCourse.faculty,
-        lecturer: currentCourse.lecturer,
-         stdcont: currentCourse.stdcont,
-      };
-      console.log(data);
-      courseApi
-        .update(id, data)
-        .then((response) => {
-          console.log(response.data);
-          this.message = "The tutorial was updated successfully!";
-          this.editdialog = false;
-        
-          this.refreshList();
-           this.editdialog = false;
-        })
-        .catch((e) => {
-          console.log(id, data);
-          console.log(e);
-        });
-    },
+ 
 
     deleteItem(id) {
       this.id = id;
