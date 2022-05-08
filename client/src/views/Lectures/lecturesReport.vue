@@ -10,9 +10,9 @@
         <v-row>
       <v-col>
      <container>
-       <span class="title black--text ml-2">Home > Lectures </span>
+       <span class="title black--text ml-2">Home > Lectures > Report </span>
      </container></v-col><v-spacer></v-spacer><v-spacer></v-spacer><v-spacer></v-spacer><v-col>
-      <container><v-btn color="primary" button to="/lecturesReport">Generate PDF</v-btn></container></v-col>
+      <container><v-btn color="primary" @click="  downloadPDF()" >Download PDF</v-btn></container></v-col>
         </v-row>
       </container>
     </v-toolbar-title>
@@ -29,7 +29,7 @@
       {{ this.message }}
     </v-alert>
 
-    <div class="table" style="height: 100vh">
+    <div class="table" style="height: 100vh" id="report">
       
       <v-data-table
         :headers="headers"
@@ -51,118 +51,16 @@
         <template v-slot:top>
           <v-toolbar flat>
             <v-toolbar-title>Manage Lectures</v-toolbar-title>
-            <v-divider class="mx-4" inset vertical></v-divider>
+           
             <v-spacer></v-spacer>
             
             
-             <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
            
-            ></v-text-field>
              <v-spacer></v-spacer>
-            <template>
-              <v-row align="center" justify="space-around">
-                <v-btn to="/addlecture" color="primary">Add Lecture</v-btn>
-              </v-row>
-            </template>
-
-            <v-dialog v-model="dialogDelete" max-width="500px">
-              <v-card>
-                <v-card-title class="text-h5">Delete</v-card-title>
-                <v-card-title class="text-h10">
-                  Are you sure you want to remove this Lececture  ?</v-card-title
-                >
-                <v-spacer></v-spacer>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="closeDelete"
-                    >Cancel</v-btn
-                  >
-                  <v-btn
-                    color="blue darken-1"
-                    text
-                    @click="deleteItemConfirm(id)"
-                    >OK</v-btn
-                  >
-                  <v-spacer></v-spacer>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-
-            <v-dialog
-              v-if="currentLectures"
-              v-model="editdialog"
-              max-width="500px"
-            >
-              <v-card>
-                <v-card-title>
-                  <span class="text-h5">Edit Lecture</span>
-                </v-card-title>
-
-                <v-card-text>
-                  <v-container>
-                     <v-row>
-                      <v-text-field
-                        v-model="currentLectures.lid"
-                        label="lecture id"
-                      ></v-text-field> </v-row
-                    >
-                    <v-row>
-                      <v-text-field
-                        v-model="currentLectures.name"
-                        label="name"
-                      ></v-text-field> </v-row
-                    ><v-row>
-                      <v-text-field
-                        v-model="currentLectures.faculty"
-                        label="faculty"
-                      ></v-text-field> </v-row
-                    ><v-row>
-                      <v-text-field
-                        label="gender"
-                        v-model="currentLectures.gender"
-                      >
-                      </v-text-field> </v-row
-                    ><v-row>
-                      <v-text-field
-                        v-model="currentLectures.mobile"
-                        label="mobile"
-                      ></v-text-field>
-                    </v-row>
-                    <v-row>
-                      <v-text-field
-                        v-model="currentLectures.email"
-                        label="email"
-                      ></v-text-field>
-                    </v-row>
-                  </v-container>
-                </v-card-text>
-
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="close">
-                    Cancel
-                  </v-btn>
-
-                  <v-btn
-                    color="blue darken-1"
-                    text
-                    @click=" updateLecture(currentLectures)"
-                    >Save</v-btn
-                  >
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
           </v-toolbar>
         </template>
 
         <template v-slot:[`item.actions`]="{ item }">
-          <v-icon small class="mr-2" @click="editItem(item.id)"
-            >mdi-pencil</v-icon
-          >
-          <v-icon small @click="deleteItem(item.id)">mdi-delete</v-icon>
         </template>
       </v-data-table>
     </div>
@@ -195,7 +93,7 @@ export default {
         { text: 'FACULTY', value: 'faculty' },
         { text: 'MOBILE NO', value: 'mobile' },
         { text: 'EMAIL', value: 'email' },
-        { text: 'Actions', value: 'actions', sortable: false },
+        
       ],
     };
   },
@@ -330,6 +228,10 @@ export default {
     alartDisplay(massage) {
       return massage;
     },
+      downloadPDF(){
+        const element = document.getElementById("report");
+        html2pdf().from(element).save();},
+
   },
   watch: {
     editdialog(val) {

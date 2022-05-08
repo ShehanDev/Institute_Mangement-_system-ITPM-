@@ -5,12 +5,12 @@
         <v-card class="pa-s">
           
            <div v-if="!submitted"> 
-             <v-card-title>Add Lecturer</v-card-title>
+             <v-card-title>Add Lecture</v-card-title>
           <v-divider></v-divider>
 
           <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="submitForm" class="pa-5" enctype="multipart/form-data">
 
-              <v-text-field  label="Lecturer Id" v-model="lecture.LID" prepend-icon="mdi-note"   :rules="IdRules" ></v-text-field>
+              <v-text-field  label="Lecture Id" v-model="lecture.LID" prepend-icon="mdi-note"   :rules="IdRules" ></v-text-field>
 
               <v-text-field  label="Name" v-model="lecture.Name" prepend-icon="mdi-note"  :rules="nameRules" required></v-text-field>
 
@@ -34,7 +34,7 @@
               prominent
               type="success"
               push="/lecture"
-              >Lecturer Added Successfully !</v-alert
+              >Lecturer Added successfull !</v-alert
             >
           </div>
 
@@ -58,7 +58,7 @@ export default {
       ],
        nameRules: [
         v => !!v || 'Name is required',
-        v => (v && v.length <= 25) || 'Name must be less than 25 characters',
+        v => (v && v.length <= 15) || 'Name must be less than 15 characters',
       ],
        mobileRules: [
         v => !!v || 'Invalid Mobile No',
