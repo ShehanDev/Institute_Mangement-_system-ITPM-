@@ -58,7 +58,7 @@ export default {
       ],
        nameRules: [
         v => !!v || 'Name is required',
-        v => (v && v.length <= 15) || 'Name must be less than 15 characters',
+        v => (v && v.length <= 25) || 'Name must be less than 25 characters',
       ],
        mobileRules: [
         v => !!v || 'Invalid Mobile No',
