@@ -20,83 +20,34 @@ Vue.use(VueRouter)
 const routes = [
   
 
-  // {
-  //   path: '/student',
-  //   name: 'student',
-  //   component: student
-  // },
+
   {
     path: '/',
     name: 'dashboard',
     component: dashboard
   },
-  // {
-  //   path: '/courses',
-  //   name: 'courses',
-  //   component: courses
-  // },
-  // {
-  //   path: '/addstudent',
-  //   name: 'addstudent',
-  //   component: addstudent
-  // },
-  // {
-  //   path: '/addcourse',
-  //   name: 'addcourse',
-  //   component: addcourse
+  {
+    path: '/courses',
+    name: 'courses',
+    component: courses
+  },
+
+  {
+    path: '/addcourse',
+    name: 'addcourse',
+    component: addcourse
     
-  // },
-  // {
-  //   path: '/booksveiw',
-  //   name: 'booksveiw',
-  //   component: booksveiw
-    
-  // },
-  // {
-  //   path: '/addbook',
-  //   name: 'addbook',
-  //   component: addbook
-    
-  // },
-  // {
+  },
+  {
+    path: '/coursesReport',
+    name: 'coursesReport',
+    component: coursesReport
+  }
+  
 
-  //   path: '/lectures',
-  //   name: 'lectures',
-  //   component: lectures
 
-  // },
-  // {
+ 
 
-  //   path: '/addlecture',
-
-  //   name: 'lecture',
-
-  //   component: addlectures
-
-  // },
-  // {
-  //   path: '/addedstudent',
-  //   name: 'addedstudent',
-  //   component: addedstudent
-  // },
-
-  // {
-  //   path: '/addedcourse',
-  //   name: 'addedcourse',
-  //   component: addedcourse
-  // },
-
-  // {
-  //   path: '/addedlecture',
-  //   name: 'addedlecture',
-  //   component: addedlecture
-  // },
-
-  // {
-  //   path: '/addedbook',
-  //   name: 'addedbook',
-  //   component: addedbook
-  // },
 ]
 
 const router = new VueRouter({
