@@ -74,8 +74,6 @@
       
 
 <script>
-import jspdf from "jspdf";
-import "jspdf-autotable";
 
 import studentApi from "../../services/studentApi";
 
