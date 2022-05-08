@@ -10,6 +10,11 @@ import addcourse  from '../views/Courses/CourseAdd.vue'
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    name: 'dashboard',
+    component: dashboard
+  },
  
   {
     path: '/courses',
