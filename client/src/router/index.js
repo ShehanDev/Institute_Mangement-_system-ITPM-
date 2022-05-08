@@ -1,73 +1,40 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import dashboard  from '../views/Dashboard/dashboardView.vue'
-import booksveiw  from '../views/Library/BooksView.vue'
-import addbook  from '../views/Library/BooksAdd.vue'
-import BookReport from '../views/Library/BooksReport.vue'
+import courses  from '../views/Courses/courses.vue'
+import coursesReport  from '../views/Courses/coursesReport.vue'
+import addcourse  from '../views/Courses/CourseAdd.vue'
+
+
+
 
 Vue.use(VueRouter)
 
 const routes = [
-  
+
   {
     path: '/',
     name: 'dashboard',
     component: dashboard
   },
- 
-  //Library Routes
   {
-    path: '/booksveiw',
-    name: 'booksveiw',
-    component: booksveiw
-    
-   },
-  {
-    path: '/addbook',
-    name: 'addbook',
-    component: addbook
-    
+    path: '/courses',
+    name: 'courses',
+    component: courses
   },
 
   {
-    path: '/BookReport',
-    name: 'BookReport',
-    component: BookReport
-
+    path: '/addcourse',
+    name: 'addcourse',
+    component: addcourse
+    
   },
-  // {
-
-  //   path: '/lectures',
-  //   name: 'lectures',
-  //   component: lectures
-
-  // },
-  // {
-
-  //   path: '/addlecture',
-
-  //   name: 'lecture',
-
-  //   component: addlectures
-
-  // },
-  // {
-  //   path: '/addedstudent',
-  //   name: 'addedstudent',
-  //   component: addedstudent
-  // },
-
-  // {
-  //   path: '/addedcourse',
-  //   name: 'addedcourse',
-  //   component: addedcourse
-  // },
-
-  // {
-  //   path: '/addedlecture',
-  //   name: 'addedlecture',
-  //   component: addedlecture
-  // },
+  {
+    path: '/coursesReport',
+    name: 'coursesReport',
+    component: coursesReport
+  }
+  
 ]
 
 const router = new VueRouter({
