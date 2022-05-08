@@ -11,6 +11,7 @@ import addlectures  from '../views/Lectures/LectureAdd.vue'
 import lectures  from '../views/Lectures/lecturesView.vue'
 // import addedstudent  from '../views/Students/AddedStudent.vue'
 // import addedcourse  from '../views/Courses/AddedCourse.vue'
+import lecturesReport from '../views/Lectures/lecturesReport.vue'
 
 // import addedbook from '../views/Library/AddedBook.vue'
 

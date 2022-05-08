@@ -1,7 +1,7 @@
 <template>
   <v-container>
    <v-toolbar-title class="title black--text ml-1">
-      ALL LECTURES<span class="caption">
+      ALL LECTURERS<span class="caption">
         <br />
       </span>
     </v-toolbar-title>
@@ -10,7 +10,7 @@
         <v-row>
       <v-col>
      <container>
-       <span class="title black--text ml-2">Home > Lectures </span>
+       <span class="title black--text ml-2">Home > Lecturers </span>
      </container></v-col><v-spacer></v-spacer><v-spacer></v-spacer><v-spacer></v-spacer><v-col>
       <container><v-btn color="primary" button to="/lecturesReport">Generate PDF</v-btn></container></v-col>
         </v-row>
@@ -64,7 +64,7 @@
              <v-spacer></v-spacer>
             <template>
               <v-row align="center" justify="space-around">
-                <v-btn to="/addlecture" color="primary">Add Lecture</v-btn>
+                <v-btn to="/addlecture" color="primary">Add Lecturer</v-btn>
               </v-row>
             </template>
 
@@ -98,7 +98,7 @@
             >
               <v-card>
                 <v-card-title>
-                  <span class="text-h5">Edit Lecture</span>
+                  <span class="text-h5">Edit Lecturer</span>
                 </v-card-title>
 
                 <v-card-text>
